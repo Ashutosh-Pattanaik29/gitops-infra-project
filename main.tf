@@ -28,3 +28,10 @@ resource "aws_s3_bucket" "gitops_demo" {
     Environment = "Production"
   }
 }
+
+resource "aws_s3_bucket_versioning" "gitops_demo_versioning" {
+  bucket = aws_s3_bucket.gitops_demo.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
